@@ -4,7 +4,7 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
 
 ## Table of Contents
 
-- [Gradient Waveform Errors and How to Correct Them](#repository-template)
+- [Gradient Waveform Errors and How to Correct Them](#gradient-waveform-errors-and-how-to-correct-them)
   - [Table of Contents](#table-of-contents)
   - [Setup](#setup)
     - [Prerequisites](#prerequisites)
