@@ -21,7 +21,7 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
 ## Proposed Demos (TODOS)
 
 - Test waveform generation (slew rate limited chirp, for example)
-- Eddy current effects and corrections
+- Eddy current effects (and corrections)
 - GIRF measurement and correction
 - TCN measurement and correction
 
