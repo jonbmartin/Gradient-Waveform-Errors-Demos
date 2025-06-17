@@ -18,6 +18,14 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
   - [Contacts](#contacts)
   - [Licence](#licence)
 
+## Proposed Demos (TODOS)
+
+- Test waveform generation
+- Eddy current effects and corrections
+- GIRF measurement and correction
+- TCN measurement and correction
+
+
 ## Setup
 
 The contents of this 
