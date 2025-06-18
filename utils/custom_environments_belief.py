@@ -22,7 +22,7 @@ class BeliefWindowBuffer():
 	"""Class to control the buffer which contains the current window of observations and actions to be used in the belief
 	network's prediction of current timepoint's gradient and trajectory error. 
 	"""
-	def __init__(self, observation_size, action_size buffer_length):
+	def __init__(self, observation_size, action_size, buffer_length):
 		self.observation_size = observation_size
 		self.action_size = action_size
 		self.buffer_length = buffer_length
@@ -35,7 +35,7 @@ class BeliefWindowBuffer():
 
 		for iter in range(self.buffer_length):
 			self.observation_v.append(np.zeros(self.observation_size))
-			self.action_v.append(np.zeros(self.action_space.shape[0]))
+			self.action_v.append(np.zeros(self.action_size))
 			self.observed_error_v.append(0)
 			self.observed_kspace_v.append(0)
 
