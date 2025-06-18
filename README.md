@@ -19,6 +19,8 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
   - [Licence](#licence)
 
 ## Proposed Demos (TODOS)
+[![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex0_Characterization_Waveform_Design.ipynb
+)<br>
 
 - Test waveform generation (slew rate limited chirp, for example)
 - Eddy current effects (and corrections)
