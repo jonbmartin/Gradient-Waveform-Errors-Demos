@@ -22,9 +22,9 @@ class BeliefWindowBuffer():
 	"""Class to control the buffer which contains the current window of observations and actions to be used in the belief
 	network's prediction of current timepoint's gradient and trajectory error. 
 	"""
-	def __init__(self, observation_space, action_space, buffer_length):
-		self.observation_space = observation_space
-		self.action_space = action_space
+	def __init__(self, observation_size, action_size buffer_length):
+		self.observation_size = observation_size
+		self.action_size = action_size
 		self.buffer_length = buffer_length
 
 		# initialize to all 0's. When using just update (append and remove) 1 element at a time
@@ -34,7 +34,7 @@ class BeliefWindowBuffer():
 		self.observed_kspace_v = []
 
 		for iter in range(self.buffer_length):
-			self.observation_v.append(np.zeros(self.observation_space.shape[0]))
+			self.observation_v.append(np.zeros(self.observation_size))
 			self.action_v.append(np.zeros(self.action_space.shape[0]))
 			self.observed_error_v.append(0)
 			self.observed_kspace_v.append(0)
@@ -61,7 +61,7 @@ class BeliefWindowBuffer():
 		else:
 			# add at specifed index
 			self.observation_v[index] = observation
-			action_v_holder = np.zeros(self.action_space.shape[0])
+			action_v_holder = np.zeros(self.action_size)
 			action_v_holder[0] = action[0][0]
 			self.action_v[index] = action_v_holder
 			self.observed_error_v[index] = observed_error
@@ -99,8 +99,8 @@ class BeliefWindowBuffer():
 		self.observed_kspace_v = []
 
 		for index in range(self.buffer_length+1):
-			self.observation_v.append(np.zeros(self.observation_space.shape[0]))
-			self.action_v.append(np.zeros(self.action_space.shape[0]))
+			self.observation_v.append(np.zeros(self.observation_size))
+			self.action_v.append(np.zeros(self.action_size))
 			self.observed_error_v.append(0)
 			self.observed_kspace_v.append(0)
 
