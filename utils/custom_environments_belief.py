@@ -7,9 +7,6 @@ import csv
 import torch
 from belief_network_util import * 
 
-from util import random_walk
-
-from sklearn.preprocessing import normalize
 from belief_network_util import create_dataset
 
 import pandas as pd
@@ -20,9 +17,6 @@ import matplotlib.pyplot as plt
 import random
 import csv
 import torch
-
-from sklearn.preprocessing import normalize
-from belief_network_util import create_dataset
 
 class BeliefWindowBuffer():
 	"""Class to control the buffer which contains the current window of observations and actions to be used in the belief
