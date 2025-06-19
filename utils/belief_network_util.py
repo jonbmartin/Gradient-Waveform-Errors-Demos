@@ -364,8 +364,8 @@ def create_dataset(dataset_x, dataset_y, window_size, predict_point, pct_data_to
 
     X = torch.tensor(np.array(X))
     y = torch.tensor(np.array(y))
-    X = X.type(torch.FloatTensor)
-    y = y.type(torch.FloatTensor)
+    #X = X.type(torch.FloatTensor)
+    #y = y.type(torch.FloatTensor)
 
 
     return X, y
