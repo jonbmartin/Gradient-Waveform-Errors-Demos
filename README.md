@@ -5,10 +5,10 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
 ## Table of Contents
 
 - [Gradient Waveform Errors and How to Correct Them](#gradient-waveform-errors-and-how-to-correct-them)
-  - [Demo 1: Characterization waveform building](#demo-1:-characterization-waveform-building)
-  - [Demo 2: Eddy currents and correction methods](#demo-2:-eddy-currents-and-correction-methods)
-  - [Demo 3: GIRF measurement and correction](#demo-3:-eddy-currents-and-correction-methods)
-  - [Demo 4: Eddy currents and correction methods](#demo-4:-eddy-currents-and-correction-methods)
+  - [Demo 1 Characterization waveform building](#demo-1-characterization-waveform-building)
+  - [Demo 2 Eddy currents and correction methods](#demo-2-eddy-currents-and-correction-methods)
+  - [Demo 3 GIRF measurement and correction](#demo-3-eddy-currents-and-correction-methods)
+  - [Demo 4 Eddy currents and correction methods](#demo-4-eddy-currents-and-correction-methods)
   - [Usage](#usage)
     - [Testing](#testing)
   - [Design](#design)
