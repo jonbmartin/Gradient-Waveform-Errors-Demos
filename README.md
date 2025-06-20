@@ -6,8 +6,8 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
 
 - [Gradient Waveform Errors and How to Correct Them](#gradient-waveform-errors-and-how-to-correct-them)
   - [Demo 1: Characterization waveform building](#demo-1:-characterization-waveform-building)
-  - [Setup](#setup)
-    - [Prerequisites](#prerequisites)
+  - [Demo 2: Eddy currents and correction methods](#demo-2:-eddy-currents-and-correction-methods)
+  - [Prerequisites](#prerequisites)
     - [Configuration](#configuration)
   - [Usage](#usage)
     - [Testing](#testing)
@@ -20,9 +20,19 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
 
 ## Demo 1: Characterization waveform building
 Our first demo will start at the beginning: how do you characterize your gradient system? One of the most widely adopted methods is to input a known gradient waveform  with some frequency content of interest, and measure the output. 
-This can be used to build a model of your hardware system. 
+This can be used to build a model of your hardware system. We will start by showing how to build a slew rate limited chirp, a typical gradient characterization waveform. 
+
 [![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex0_Characterization_Waveform_Design.ipynb
 )<br>
+
+## Demo 2: Eddy currents and correction methods
+Our second demo will simulate a system with some eddy currents, which creates a nonideal (but linear) gradient system response. We will show how to correct the eddy currents. 
+
+
+## Demo 3: Characterization waveform building
+
+## Demo 4: Characterization waveform building
+
 
 - Test waveform generation (slew rate limited chirp, for example)
 - Eddy current effects (and corrections)
