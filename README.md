@@ -5,7 +5,7 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
 ## Table of Contents
 
 - [Gradient Waveform Errors and How to Correct Them](#gradient-waveform-errors-and-how-to-correct-them)
-  - [Table of Contents](#table-of-contents)
+  - [Demo 1: Characterization waveform building](#demo-1:-characterization-waveform-building)
   - [Setup](#setup)
     - [Prerequisites](#prerequisites)
     - [Configuration](#configuration)
@@ -18,7 +18,9 @@ Welcome! This is a code repository accompanying the paper "Gradient Waveform Err
   - [Contacts](#contacts)
   - [Licence](#licence)
 
-## Proposed Demos (TODOS)
+## Demo 1: Characterization waveform building
+Our first demo will start at the beginning: how do you characterize your gradient system? One of the most widely adopted methods is to input a known gradient waveform  with some frequency content of interest, and measure the output. 
+This can be used to build a model of your hardware system. 
 [![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex0_Characterization_Waveform_Design.ipynb
 )<br>
 
