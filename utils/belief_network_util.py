@@ -21,92 +21,6 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data.distributed import DistributedSampler
 from torch.cuda.amp import autocast, GradScaler
 
-def MSEloss_with_integral(output, target):
-    loss = nn.MSELoss(output,target) + nn.MSELoss(torch.cumsum(output,0),torch.cumsum(target,0))
-    return loss
-
-
-class BeliefModelBidirectional(nn.Module):
-    def __init__(self, input_size, hidden_size, num_lstm_layers=2, lstm_dropout=0.35):
-        super().__init__()
-        # IMPORTANT NOTE. If num_layers = 1, there will be no dropout applied within
-        # the LSTM layers. Must be >= 2. 
-        # self.linear1 = nn.Linear(input_size, hidden_size)
-        # self.act1 = nn.SiLU()
-        # self.linear2 = nn.Linear(hidden_size, hidden_size)
-        self.lstm = nn.LSTM(input_size=input_size,
-                             hidden_size=hidden_size, num_layers=num_lstm_layers, 
-                             batch_first=True, dropout=lstm_dropout, bidirectional=True)
-        # formerly got good results with dropout=0.3
-        self.linear4 = nn.Linear(hidden_size*2, 1)
-
-    def forward(self, x):
-        # x = self.act1(self.linear1(x))
-        # x = self.linear2(x)
-        x, _ = self.lstm(x)
-        x = self.linear4(x)
-        return x
-
-class BeliefModelBidirectionalSimple(nn.Module):
-    def __init__(self, input_size, hidden_size, num_lstm_layers=2, lstm_dropout=0.35):
-        super().__init__()
-        # IMPORTANT NOTE. If num_layers = 1, there will be no dropout applied within
-        # the LSTM layers. Must be >= 2. 
-        self.lstm = nn.LSTM(input_size=input_size,
-                             hidden_size=hidden_size, num_layers=num_lstm_layers, 
-                             batch_first=True, dropout=lstm_dropout, bidirectional=False)
-        # formerly got good results with dropout=0.3
-        self.linear4 = nn.Linear(hidden_size, 1)
-
-    def forward(self, x):
-        # x = self.act1(self.linear1(x))
-        # x = self.linear2(x)
-        x, _ = self.lstm(x)
-        x = self.linear4(x)
-        return x
-
-
-class BeliefModelUnidirectional(nn.Module):
-    def __init__(self, input_size, hidden_size, num_lstm_layers=2, lstm_dropout=0.35):
-        super().__init__()
-        # IMPORTANT NOTE. If num_layers = 1, there will be no dropout applied within
-        # the LSTM layers. Must be >= 2. 
-        self.lstm = nn.LSTM(input_size=input_size,
-                             hidden_size=hidden_size, num_layers=num_lstm_layers, 
-                             batch_first=True, dropout=lstm_dropout, bidirectional=False)
-        # formerly got good results with dropout=0.3
-        self.linear4 = nn.Linear(hidden_size, 1)
-
-    def forward(self, x):
-        x, _ = self.lstm(x)
-        x = self.linear4(x)
-        return x
-
-class LSTM(nn.Module):
-# very simple LSTM from Gridin 2022. 
-
-    def __init__(self,
-                 hidden_size,
-                 num_layers,
-                 dropout,
-                 in_size = 1,
-                 out_size = 1):
-        super(LSTM, self).__init__()
-        self.model_name = "LSTM"
-        self.lstm = nn.LSTM(
-            input_size = in_size,
-            hidden_size = hidden_size,
-            num_layers = num_layers,
-            dropout = dropout,
-            batch_first = True)
-        self.fc = nn.Linear(hidden_size, out_size)
-
-    def forward(self, x, h = None):
-        out, h = self.lstm(x, h)
-        last_hidden_states = out[:, -1]
-        out = self.fc(last_hidden_states)
-        return out, h
-
 class Crop(nn.Module):
 # crop layer is responsible for trimming the tensor from the right when creating
 # a casual convolution operation. Source: Gridin 2022
@@ -190,26 +104,6 @@ class TCN(nn.Module):
         y = self.tcn(x)
         return self.linear(y[:, :, -1])
 
-
-class RNN(nn.Module):
-
-    def __init__(self, hidden_size, num_layers, nonlinearity, dropout, in_size = 1, out_size = 1):
-        super(RNN, self).__init__()
-        self.model_name = "RNN"
-        self.rnn = nn.RNN(
-            input_size = in_size,
-            hidden_size = hidden_size, 
-            num_layers = num_layers,
-            nonlinearity = nonlinearity,
-            dropout = dropout,
-            batch_first = True)
-        self.fc = nn.Linear(hidden_size, out_size)
-
-    def forward(self, x, h = None):
-        out, _ = self.rnn(x, h)
-        last_hidden_states = out[:, -1]
-        out = self.fc(last_hidden_states)
-        return out, last_hidden_states
 
 
 ############################################
