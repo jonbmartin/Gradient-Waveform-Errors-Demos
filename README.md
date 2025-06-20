@@ -1,107 +1,41 @@
 # Gradient Waveform Errors and How to Correct Them
 
-Welcome! This is a code repository accompanying the paper "Gradient Waveform Errors and How to Correct Them: A review of methods to measure and correct for spatiotemporal magnetic field errors in MRI" (Harkins, K.D. et. al (In Prep.). 
+Welcome! This is a code repository accompanying the paper "Gradient Waveform Errors and How to Correct Them: A review of methods to measure and correct for spatiotemporal magnetic field errors in MRI" (Harkins, K.D. et. al (In Prep.). All demos can be run as google colab notebooks, with no local dependencies.  
 
 ## Table of Contents
 
 - [Gradient Waveform Errors and How to Correct Them](#gradient-waveform-errors-and-how-to-correct-them)
-  - [Table of Contents](#table-of-contents)
-  - [Setup](#setup)
-    - [Prerequisites](#prerequisites)
-    - [Configuration](#configuration)
-  - [Usage](#usage)
-    - [Testing](#testing)
-  - [Design](#design)
-    - [Diagrams](#diagrams)
-    - [Modularity](#modularity)
-  - [Contributing](#contributing)
+  - [Demo 0 Characterization waveform building](#demo-1-characterization-waveform-building)
+  - [Demo 1 Eddy currents and correction methods](#demo-2-eddy-currents-and-correction-methods)
+  - [Demo 2 GIRF measurement and correction](#demo-3-eddy-currents-and-correction-methods)
+  - [Demo 3 Eddy currents and correction methods](#demo-4-eddy-currents-and-correction-methods)
   - [Contacts](#contacts)
   - [Licence](#licence)
 
-## Proposed Demos (TODOS)
+## Demo 0: Characterization waveform building
+Our first demo will start at the beginning: how do you characterize your gradient system? One of the most widely adopted methods is to input a known gradient waveform  with some frequency content of interest, and measure the output. 
+This can be used to build a model of your hardware system. We will start by showing how to build a slew rate limited chirp, a typical gradient characterization waveform. 
+
 [![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex0_Characterization_Waveform_Design.ipynb
 )<br>
 
-- Test waveform generation (slew rate limited chirp, for example)
-- Eddy current effects (and corrections)
-- GIRF measurement and correction
-- TCN measurement and correction
+## Demo 1: Eddy currents and correction methods
+Our second demo will simulate a system with some eddy currents, which creates a nonideal (but linear) gradient system response. We will show how to correct the eddy currents. 
 
+[![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex1_Eddy_Currents.ipynb
+)<br>
 
-## Setup
+## Demo 2: GIRF measurement and correction
+Our third demo will simulate a simple system which attenuates high frequencies (quite common). We will build a GIRF model of the system and use it to predict waveform distortions.  
 
-The contents of this 
+[![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex2_GIRF.ipynb
+)<br>
 
-Clone the repository
+## Demo 3: Neural network measurement and correction
+Our fourth demo will use real data from a 7T animal scanner, and train a temporal convolutional network to predict gradient waveform errors. For this demo, make sure to set the runtime to GPU. 
 
-```shell
-git clone https://github.com/nhs-england-tools/repository-template.git
-cd nhs-england-tools/repository-template
-```
-
-### Prerequisites
-
-The following software packages, or their equivalents, are expected to be installed and configured:
-
-- [Docker](https://www.docker.com/) container runtime or a compatible tool, e.g. [Podman](https://podman.io/),
-- [asdf](https://asdf-vm.com/) version manager,
-- [GNU make](https://www.gnu.org/software/make/) 3.82 or later,
-
-> [!NOTE]<br>
-> The version of GNU make available by default on macOS is earlier than 3.82. You will need to upgrade it or certain `make` tasks will fail. On macOS, you will need [Homebrew](https://brew.sh/) installed, then to install `make`, like so:
->
-> ```shell
-> brew install make
-> ```
->
-> You will then see instructions to fix your [`$PATH`](https://github.com/nhs-england-tools/dotfiles/blob/main/dot_path.tmpl) variable to make the newly installed version available. If you are using [dotfiles](https://github.com/nhs-england-tools/dotfiles), this is all done for you.
-
-- [GNU sed](https://www.gnu.org/software/sed/) and [GNU grep](https://www.gnu.org/software/grep/) are required for the scripted command-line output processing,
-- [GNU coreutils](https://www.gnu.org/software/coreutils/) and [GNU binutils](https://www.gnu.org/software/binutils/) may be required to build dependencies like Python, which may need to be compiled during installation,
-
-> [!NOTE]<br>
-> For macOS users, installation of the GNU toolchain has been scripted and automated as part of the `dotfiles` project. Please see this [script](https://github.com/nhs-england-tools/dotfiles/blob/main/assets/20-install-base-packages.macos.sh) for details.
-
-- [Python](https://www.python.org/) required to run Git hooks,
-- [`jq`](https://jqlang.github.io/jq/) a lightweight and flexible command-line JSON processor.
-
-### Configuration
-
-Installation and configuration of the toolchain dependencies
-
-```shell
-make config
-```
-
-## Usage
-
-After a successful installation, provide an informative example of how this project can be used. Additional code snippets, screenshots and demos work well in this space. You may also link to the other documentation resources, e.g. the [User Guide](./docs/user-guide.md) to demonstrate more use cases and to show more features.
-
-### Testing
-
-There are `make` tasks for you to configure to run your tests.  Run `make test` to see how they work.  You should be able to use the same entry points for local development as in your CI pipeline.
-
-## Design
-
-### Diagrams
-
-The [C4 model](https://c4model.com/) is a simple and intuitive way to create software architecture diagrams that are clear, consistent, scalable and most importantly collaborative. This should result in documenting all the system interfaces, external dependencies and integration points.
-
-![Repository Template](./docs/diagrams/Repository_Template_GitHub_Generic.png)
-
-### Modularity
-
-Most of the projects are built with customisability and extendability in mind. At a minimum, this can be achieved by implementing service level configuration options and settings. The intention of this section is to show how this can be used. If the system processes data, you could mention here for example how the input is prepared for testing - anonymised, synthetic or live data.
-
-## Contributing
-
-Describe or link templates on how to raise an issue, feature request or make a contribution to the codebase. Reference the other documentation files, like
-
-- Environment setup for contribution, i.e. `CONTRIBUTING.md`
-- Coding standards, branching, linting, practices for development and testing
-- Release process, versioning, changelog
-- Backlog, board, roadmap, ways of working
-- High-level requirements, guiding principles, decision records, etc.
+[![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex3_Neural_Network.ipynb
+)<br>
 
 ## Contacts
 
