@@ -1,6 +1,6 @@
 # Gradient Waveform Errors and How to Correct Them
 
-Welcome! This is a code repository accompanying the paper "Gradient Waveform Errors and How to Correct Them: A review of methods to measure and correct for spatiotemporal magnetic field errors in MRI" (Harkins, K.D. et. al (In Prep.). 
+Welcome! This is a code repository accompanying the paper "Gradient Waveform Errors and How to Correct Them: A review of methods to measure and correct for spatiotemporal magnetic field errors in MRI" (Harkins, K.D. et. al (In Prep.). All demos can be run as google colab notebooks, with no local dependencies.  
 
 ## Table of Contents
 
@@ -36,7 +36,7 @@ Our third demo will simulate a simple system which attenuates high frequencies (
 )<br>
 
 ## Demo 4: Neural network measurement and correction
-Our fourth demo will use real data from a 7T animal scanner, and train a temporal convolutional network to predict gradient waveform errors
+Our fourth demo will use real data from a 7T animal scanner, and train a temporal convolutional network to predict gradient waveform errors. For this demo, make sure to set the runtime to GPU. 
 [![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex0_Characterization_Waveform_Design.ipynb
 )<br>
 
