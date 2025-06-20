@@ -34,7 +34,7 @@ Our third demo will simulate a simple system which attenuates high frequencies (
 ## Demo 3: Neural network measurement and correction
 Our fourth demo will use real data from a 7T animal scanner, and train a temporal convolutional network to predict gradient waveform errors. For this demo, make sure to set the runtime to GPU. 
 
-[![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex3_TCN.ipynb
+[![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex3_Neural_Network.ipynb
 )<br>
 
 ## Contacts
