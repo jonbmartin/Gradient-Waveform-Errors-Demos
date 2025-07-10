@@ -20,7 +20,7 @@ This can be used to build a model of your hardware system. We will start by show
 )<br>
 
 ## Demo 1: Eddy currents and correction methods
-Our second demo will simulate a system with some eddy currents, which creates a nonideal (but linear) gradient system response. We will show how to correct the eddy currents. 
+Our second demo will simulate a system with some eddy currents, which creates a nonideal (but linear) gradient system response. We will show how to correct the eddy currents via preemphasis.
 
 [![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex1_Eddy_Currents.ipynb
 )<br>
