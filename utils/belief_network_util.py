@@ -120,7 +120,7 @@ def train_and_test_belief_network(n_epochs, model, loss_fn, optimizer, dataloade
     if verbose:
     	print("Training and testing belief network")
 
-    scaler = GradScaler('cuda')
+    scaler = GradScaler()
 
     training_loss = []
     test_loss = []
@@ -141,7 +141,7 @@ def train_and_test_belief_network(n_epochs, model, loss_fn, optimizer, dataloade
         train_cost = 0
         n_batches = 0
         for X_batch, y_batch in dataloader:
-            with autocast('cuda'):
+            with autocast():
                 optimizer.zero_grad()
                 if model.model_name == "TCN":
                     y_pred = model(X_batch)
