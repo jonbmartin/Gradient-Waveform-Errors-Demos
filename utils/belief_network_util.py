@@ -14,7 +14,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.utils.data as data
-from torch.nn.utils import weight_norm
+from torch.nn.utils.parameterizations import weight_norm
 
 # distributed computation utilities
 from torch.nn.parallel import DistributedDataParallel as DDP
@@ -120,7 +120,7 @@ def train_and_test_belief_network(n_epochs, model, loss_fn, optimizer, dataloade
     if verbose:
     	print("Training and testing belief network")
 
-    scaler = GradScaler()
+    scaler = GradScaler('cuda')
 
     training_loss = []
     test_loss = []
@@ -141,7 +141,7 @@ def train_and_test_belief_network(n_epochs, model, loss_fn, optimizer, dataloade
         train_cost = 0
         n_batches = 0
         for X_batch, y_batch in dataloader:
-            with autocast():
+            with autocast('cuda'):
                 optimizer.zero_grad()
                 if model.model_name == "TCN":
                     y_pred = model(X_batch)
