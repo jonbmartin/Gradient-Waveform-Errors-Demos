@@ -28,6 +28,7 @@ Our second demo will simulate a system with some eddy currents, which creates a 
 
 ## Demo 2: GIRF measurement and correction
 Our third demo will simulate a simple system which attenuates high frequencies (quite common). We will build a GIRF model of the system and use it to predict waveform distortions.  
+JBM TODO: use real data and use to predict an unseen gradient waveform. JBM TODO: also make sure to be clearly distinguishing GIRF/GSTF 
 
 [![Explore Siren in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jonbmartin/Gradient-Waveform-Errors-Demos/blob/main/Ex2_GIRF.ipynb
 )<br>
