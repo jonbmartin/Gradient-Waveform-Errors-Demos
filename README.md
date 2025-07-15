@@ -1,4 +1,5 @@
 # Gradient Waveform Errors and How to Correct Them
+JBM TODO: edit for tone
 
 Welcome! This is a code repository accompanying the paper "Gradient Waveform Errors and How to Correct Them: A review of methods to measure and correct for spatiotemporal magnetic field errors in MRI" (Harkins, K.D. et. al (In Prep.). All demos can be run as google colab notebooks, with no local dependencies.  
 
